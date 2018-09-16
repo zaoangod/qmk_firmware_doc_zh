@@ -45,4 +45,4 @@ This would build the `rev4` revision of the `planck` with the `default` keymap. 
 
 QMK has lots of [features](features.md) to explore, and a good deal of [reference documentation](http://docs.qmk.fm) to dig through. Most features are taken advantage of by modifying your [keymap](keymap.md), and changing the [keycodes](keycodes.md).
 
-QMK 有许多值得探索的[特点](features.md)，以及大量的[参考文档](http://docs.qmk.fm)。通过修改按键映射和更改键码可以充分利用大多数功能。
+QMK 有许多值得探索的[特点](features.md)，以及大量的[参考文档](http://docs.qmk.fm)。通过修改[按键映射](keymap.md)和更改[键码](keycodes.md)可以充分利用大多数功能。
