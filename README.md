@@ -20,13 +20,13 @@ QMK (*Quantum Mechanical Keyboard*) 是一个维护QMK固件的开源社区，QM
 ## 如何编译
 
 在你能够编译之前，怒需要为 AVR 或 ARM 开发[安装](getting_started_build_tools.md)一个环境。一旦完成，你就可以使用 `make` 命令用以下表示法构建键盘和按键映射：
-
+```
     make planck/rev4:default
-
+```
 这将使用默认的按键映射构建 `planck` 的 `rev4` 修订版。并非所有键盘都有修订版（也称为子项目或文件夹），在这种情况下，它可以省略：
-
+```
     make preonic:default
-
+```
 ## 如何定制
 
 QMK 有许多值得探索的[特点](features.md)，以及大量的[参考文档](http://docs.qmk.fm)。通过修改[按键映射](keymap.md)和更改[键码](keycodes.md)可以充分利用大多数功能。
