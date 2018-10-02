@@ -15,7 +15,7 @@ QMK (*Quantum Mechanical Keyboard*) 是一个开源社区，维护 QMK 固件，
 [OLKB](http://olkb.com) 产品线，ErgoDox EZ键盘，[ErgoDox EZ](http://www.ergodox-ez.com) 键盘，[Clueboard](http://clueboard.co/) 产品线，它也被使用 ChibiOS 移植到 ARM 芯片上，你可以使用它驱动你自定义的键盘或者 PCB。
 
 ## 如何获得它
-如果您打算向 QMK 提供按键映射，键盘或功能，最简单的方法是通过 Github fork 这个[仓库](https://github.com/qmk/qmk_firmware#fork-destination-box)，并且克隆仓库到本地进行更改，推送它们，然后从你 fork 的仓库 [Pull Request](https://github.com/qmk/qmk_firmware/pulls) 。
+你如果打算向 QMK 提供按键映射，键盘或功能，最简单的方法是通过 Github fork 这个[仓库](https://github.com/qmk/qmk_firmware#fork-destination-box)，并且克隆仓库到本地进行更改，推送它们，然后从你 fork 的仓库 [Pull Request](https://github.com/qmk/qmk_firmware/pulls) 。
 
 或者，你可以直接下载 ([zip](https://github.com/qmk/qmk_firmware/zipball/master)、[tar](https://github.com/qmk/qmk_firmware/tarball/master))，或通过 git(git@github.com:qmk/qmk_firmware.git)、https (https://github.com/qmk/qmk_firmware.git) 克隆它。
 
