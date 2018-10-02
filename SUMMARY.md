@@ -1,3 +1,4 @@
+# QMK Firmware
 * [完整新手指南](newbs.md)
   * [入门](newbs_getting_started.md)
   * [构建你的首个固件](newbs_building_firmware.md)

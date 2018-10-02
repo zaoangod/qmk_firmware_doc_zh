@@ -9,7 +9,7 @@
 
 ## QMK 固件是什么?
 
-QMK (*Quantum Mechanical Keyboard*) 是一个维护QMK固件的开源社区，QMK 工具箱，qmk.fm，这些文档。QMK 固件是基于 [tmk_keyboard](http://github.com/tmk/tmk_keyboard) 的键盘固件，具有 Atmel AVR 控制器的一些有用功能，更具体地说，[OLKB](http://olkb.com) 产品线，ErgoDox EZ键盘，[ErgoDox EZ](http://www.ergodox-ez.com) 键盘，[Clueboard](http://clueboard.co/) 产品线，它也被使用 ChibiOS 移植到 ARM 芯片上，你可以使用在自己的手工布线或自定义 PCB 的键盘上。
+QMK (*Quantum Mechanical Keyboard*) 是一个开源社区，维护 QMK 固件，QMK 工具箱，qmk.fm，和这些文档。QMK 是基于 [tmk_keyboard](http://github.com/tmk/tmk_keyboard) 的一个键盘固件，具有 Atmel AVR 控制器的一些有用功能，更具体地说，[OLKB](http://olkb.com) 产品线，ErgoDox EZ键盘，[ErgoDox EZ](http://www.ergodox-ez.com) 键盘，[Clueboard](http://clueboard.co/) 产品线，它也被使用 ChibiOS 移植到 ARM 芯片上，你可以使用在自己的手工布线或自定义 PCB 的键盘上。
 
 ## 如何获得它
 
