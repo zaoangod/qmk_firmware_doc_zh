@@ -1,29 +1,33 @@
 # 刷写你的键盘
 
-既然您已经构建了一个自定义固件文件，那么您需要刷写键盘。
+构建好了你的自定义固件后，就需要刷入键盘。
 
 ## 使用 QMK 工具箱刷写键盘
 
-刷写键盘的最简单方法是使用 [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases)。
+刷固件到键盘的最简单方法是使用 [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases)。
 
-然而，QMK 工具箱目前仅适用于 Windows 和 macOS。如果你正在使用 Linux（或者只是希望从命令行刷写固件），则必须使用下面的[方法](newbs_flashing.md#从命令行刷写键盘)
+QMK 工具箱目前仅适用于 Windows 和 macOS。如果你正在使用 Linux（或者只是希望从命令行刷写固件），则必须使用下面的[方法](newbs_flashing.md#从命令行刷写键盘)
 
 ### 进入 QMK Toolbox 加载文件
 
-首先打开 QMK Toolbox 应用程序，在 Finder 或 Explorer 中找到固件文件。你的键盘固件可能有以下两种格式之一：`.hex` 或 `.bin`。QMK 将会把其中合适之一复制到你的键盘的根 `qmk_firmware` 目录中。
+首先打开 QMK Toolbox 应用程序，在 Finder 或 Explorer 中找到固件文件。你的键盘固件可能会有以下两种格式之一：`.hex` 或 `.bin`。QMK 将会把其中之一复制到你的键盘的根 `qmk_firmware` 目录中。
 
-?> 如果你用的是 Windows 或 macOS 系统，你可以使用命令来当前打开 Explorer 或 Finder 中的固件文件夹。
+?> 如果你使用的是 Windows 或 macOS，则可以使用命令简单的在 Explorer 或 Finder 中打开当前固件的文件夹。
 
 ?> Windows:
+
 ```
 start .
 ```
+
 ?> macOS:
+
 ```
 open .
 ```
 
 固件文件始终遵循以下命名格式：
+
 ```
 <keyboard_name>_<keymap_name>.{bin,hex}
 ```
@@ -32,21 +36,19 @@ open .
 planck_rev5_default.hex
 ```
 
-找到固件文件后，将其拖到 QMK Toolbox 的 "Local file" 框中，或单击 "Open" 并找到到存储固件文件的位置。
+找到固件文件后，将其拖到 QMK Toolbox 的 "Local file" 框中，或单击 "Open" 找到到存储固件文件的位置。
 
-### 将键盘进入DFU（Bootloader）模式
+### 将键盘进入 DFU(Bootloader) 模式
 
-要想刷入自定义固件，必须将键盘设置为特殊的刷写模式。在此模式下，你将无法输入或以其他方式使用键盘。切记，在写入固件时，不要拔掉键盘或中断刷写过程。
+要想刷入自定义固件，必须将键盘设置为特殊的刷写模式。在此模式下，你将无法使用键盘。切记，在写入固件时，不要拔掉键盘或中断刷写过程。
 
-不同的键盘有不同的方式进入这种特殊模式。如果您的 PCB 当前运行 QMK 或 TMK 并且未给出具体说明，请按顺序尝试以下操作：
+不同的键盘有不同的方式进入这种特殊模式。如果您的 PCB 当前运行 `QMK` 或 `TMK` 并且未给出具体说明，请按顺序尝试以下操作：
 
 * 按住两个 `shift` 键并按 `Pause`
 * 按住两个 `shift` 键并按 `B`
 * 拔下键盘，同时按住空格键和 `B`，然后插上键盘并等待一秒钟然后松开按键
 * 按下 PCB 底部的 `RESET` 按钮
-* 找到标有 `BOOT0` 或 `RESET` 的 PCB 上的插头引脚，在插入 PCB 时将它们短接在一起
-
-成功后，您将在 QMK Toolbox 中看到类似的消息：
+* 找到标有 `BOOT0` 或 `RESET` 的 PCB 上的插头引脚，在插入 PCB 时将它们短接在一起，成功后，你将在 `QMK Toolbox` 中看到类似的输出：
 
 ```
 *** Clueboard - Clueboard 66% HotSwap disconnected -- 0xC1ED:0x2390
@@ -55,7 +57,7 @@ planck_rev5_default.hex
 
 ### 刷写你的键盘
 
-点击 QMK Toolbox 中的 `Flash` 按钮。您将看到类似于以下的内容输出：
+点击 `QMK Toolbox` 中的 `Flash` 按钮。你将看到类似下面的输出内容：
 
 ```
 *** Clueboard - Clueboard 66% HotSwap disconnected -- 0xC1ED:0x2390
@@ -73,14 +75,14 @@ planck_rev5_default.hex
     Validating...  Success
     0x5600 bytes written into 0x7000 bytes memory (76.79%).
 >>> dfu-programmer atmega32u4 reset
-    
+
 *** DFU device disconnected
 *** Clueboard - Clueboard 66% HotSwap connected -- 0xC1ED:0x2390
 ```
 
 ## 从命令行刷写键盘
 
-首先你需要知道键盘使用哪个引导程序（bootloader）。通常有四种主要的引导程序（bootloader）。Pro-Micro 和它的克隆使用 CATERINA，Teensy's 使用 Halfkay，OLKB 主板使用 QMK-DFU，其他 atmega32u4 芯片使用 DFU。
+首先你需要知道键盘使用哪个引导程序（bootloader）。通常有四种主要的引导程序（bootloader）。Pro-Micro 和它的衍生产品使用 CATERINA，Teensy's 使用 Halfkay，OLKB 主板使用 QMK-DFU，其他 atmega32u4 芯片使用 DFU。
 
 你可以在[刷写操作指南和引导程序（bootloader）信息页](flashing.md)中找到关于引导程序（bootloader）的更多信息。
 
@@ -93,26 +95,25 @@ planck_rev5_default.hex
 make <my_keyboard>:<my_keymap>:dfu
 ```
 
-例如，如果你的键盘映射名为 “xyverz” 并且您正在为 `rev5 planck` 构建键盘按键映射，那么你将使用以下命令：
+例如，如果你的键盘映射名为 `xyverz` 并且你正在为 `rev5 planck` 构建键盘按键映射，那么你可以使用下面的命令：
 ```
 make planck/rev5:xyverz:dfu
 ```
-完成编译后，应输出看起来像以下的内容：
-
+完成编译后，输出看起来会像下面的内容：
 ```
 Linking: .build/planck_rev5_xyverz.elf                                                              [OK]
 Creating load file for flashing: .build/planck_rev5_xyverz.hex                                      [OK]
 Copying planck_rev5_xyverz.hex to qmk_firmware folder                                               [OK]
-Checking file size of planck_rev5_xyverz.hex                                                        
+Checking file size of planck_rev5_xyverz.hex
 * File size is fine - 18574/28672
 ```
 
-到这一步时，构建脚本将每5秒钟查找一次 DFU 引导程序。它将重复以上操作，直到找到设备或你取消它。
+到这一步时，构建脚本将每5秒钟查找一次 DFU 引导程序。它会重复以上操作，直到找到设备或你取消它。
 ```
 dfu-programmer: no device present.
 Error: Bootloader not found. Trying again in 5s.
 ```
-完成后，你将需要重置控制器。然后它应该显示与此类似的输出：
+完成后，你将需要重置控制器。输出看起来会像下面的内容：
 
 ```
 *** Attempting to flash, please don't remove device
@@ -130,23 +131,22 @@ Error: Bootloader not found. Trying again in 5s.
 >>> dfu-programmer atmega32u4 reset
 ```
 
-如果有什么问题的话，你可以这样做：
+如果有问题的话，你可以这样做：
 ```
 sudo make <my_keyboard>:<my_keymap>:dfu
 ```
 
-### Caterina 
+### Caterina
 
 对于 Arduino 主板板及其衍生产品（例如 SparkFunPro），当你准备好编译和刷写固件时，打开终端窗口并运行构建命令：
 ```
 make <my_keyboard>:<my_keymap>:avrdude
 ```
-例如，如果你的键盘按键映射名为 “xyverz” 并且你正在为 `rev2 Lets Split` 构建键盘按键映射，则你将使用以下命令：
+例如，如果你的键盘按键映射名为 `xyverz` 并且你正在为 `rev2 Lets Split` 构建键盘按键映射，则你可以使用以下命令：
 ```
 make lets_split/rev2:xyverz:avrdude
 ```
-完成编译后，输出看起来像是以下的内容：
-
+完成编译后，输出看起来会像下面的内容：
 ```
 Linking: .build/lets_split_rev2_xyverz.elf                                                            [OK]
 Creating load file for flashing: .build/lets_split_rev2_xyverz.hex                                    [OK]
@@ -154,8 +154,7 @@ Checking file size of lets_split_rev2_xyverz.hex                                
  * File size is fine - 27938/28672
 Detecting USB port, reset your controller now..............
 ```
-此时，重置主板，然后脚本将检测引导程序，然后刷写主板。输出类似于下面的内容：
-
+此时，重置主板，然后脚本将检测引导程序，然后刷写主板。输出看起来会像下面的内容：
 ```
 Detected controller on USB port at /dev/ttyS15
 
@@ -198,7 +197,7 @@ avrdude.exe: safemode: Fuses OK (E:CB, H:D8, L:FF)
 
 avrdude.exe done.  Thank you.
 ```
-如果有什么问题的话，你可以这样做：
+如果有问题的话，你可以这样做：
 ```
 sudo make <my_keyboard>:<my_keymap>:avrdude
 ```
@@ -209,11 +208,11 @@ sudo make <my_keyboard>:<my_keymap>:avrdude
 ```
 make <my_keyboard>:<my_keymap>:teensy
 ```
-例如，如果你的键盘按键映射名为 “xyverz” 并且你正在为 Ergodox 或 Ergodox EZ 构建键盘按键映射，则你将使用以下命令：
+例如，如果你的键盘按键映射名为 `xyverz` 并且你正在为 Ergodox 或 Ergodox EZ 构建键盘按键映射，则你将使用以下命令：
 ```
 make erdogox_ez:xyverz:teensy
 ```
-完成编译后，输出看起来像是以下的内容：
+完成编译后，输出看起来会像下面的内容：
 ```
 Linking: .build/ergodox_ez_xyverz.elf                                                               [OK]
 Creating load file for flashing: .build/ergodox_ez_xyverz.hex                                       [OK]
@@ -224,8 +223,7 @@ Read "./.build/ergodox_ez_xyverz.hex": 25584 bytes, 79.3% usage
 Waiting for Teensy device...
  (hint: press the reset button)
 ```
-此时，重置你的主板。完成后，你将看到像一下的输出内容：
-
+此时，重置你的主板。完成后，输出看起来会像下面的内容：
 ```
 Found HalfKay Bootloader
 Read "./.build/ergodox_ez_drashna.hex": 28532 bytes, 88.5% usage
@@ -236,4 +234,4 @@ Booting
 
 ## 测试一下
 恭喜！你的自定义固件已刷写到键盘里了！
-尝试一下，确保一切按照你希望的方式运行。我们已经编写了[测试和调试](newbs_testing_debugging.md)来完善这个新手指南，所以请到那里了解如何测试和调试你的自定义功能。
+尝试一下，确保一切是按照你希望的方式运行。我们已经编写了[测试和调试](newbs_testing_debugging.md)来完善这个新手指南，所以请到那里了解如何测试和调试你的自定义功能。
